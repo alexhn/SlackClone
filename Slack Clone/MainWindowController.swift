@@ -7,9 +7,7 @@ class MainWindowController: NSWindowController {
     }
     
     func moveToCreateAccount() {
-        print("MOVE!")
         if let createAccountViewController = storyboard?.instantiateController(withIdentifier: "createAccountViewController") as? CreateAccountViewController {
-            print("SET!")
             window?.contentView = createAccountViewController.view
         }
     }
