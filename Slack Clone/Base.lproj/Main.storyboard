@@ -794,7 +794,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="createAccountClicked:" target="XfG-lQ-9wD" id="LZG-wh-XZx"/>
+                                    <action selector="loginButtonClicked:" target="D2n-Nf-COc" id="JhK-gD-41V"/>
                                 </connections>
                             </button>
                         </subviews>
