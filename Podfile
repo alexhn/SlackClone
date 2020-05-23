@@ -8,5 +8,7 @@ target 'Slack Clone' do
   use_frameworks!
 
   # Pods for Slack Clone
+  
+  pod 'Parse'
 
 end
