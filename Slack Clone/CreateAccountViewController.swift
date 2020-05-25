@@ -17,8 +17,8 @@ class CreateAccountViewController: NSViewController {
     
     @IBOutlet weak var profilePicImageView: NSImageView!
     
+    var profilePicFile : PFFileObject?
   
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //print(config)
@@ -41,6 +41,9 @@ class CreateAccountViewController: NSViewController {
                 if let imageUrl = openPanel.urls.first {
                     if let image = NSImage(contentsOf: imageUrl) {
                         self.profilePicImageView.image = image
+                        let imageData = self.jpegDataFrom(image: image)
+                        self.profilePicFile = PFFileObject(data: imageData)
+                        self.profilePicFile?.saveInBackground()
                     }
                 }
             }
@@ -53,6 +56,7 @@ class CreateAccountViewController: NSViewController {
         user.password = passwordTextField.stringValue
         user.username = emailTextField.stringValue
         user["name"] = nameTextField.stringValue
+        user["profilePic"] = self.profilePicFile
         user.signUpInBackground { (success : Bool, error: Error?) in
             if success {
                 print("Made a User!")
@@ -60,6 +64,13 @@ class CreateAccountViewController: NSViewController {
                 print("Error!")
             }
         }
+    }
+    
+    func jpegDataFrom(image:NSImage) -> Data {
+        let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil)!
+        let bitmapRep = NSBitmapImageRep(cgImage: cgImage)
+        let jpegData = bitmapRep.representation(using: NSBitmapImageRep.FileType.jpeg, properties: [:])!
+        return jpegData
     }
     
 }
