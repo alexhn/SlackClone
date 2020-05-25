@@ -31,7 +31,20 @@ class CreateAccountViewController: NSViewController {
     }
     
     @IBAction func chooseImageClicked(_ sender: Any) {
-        
+        let openPanel = NSOpenPanel()
+        openPanel.allowsMultipleSelection = false
+        openPanel.canChooseDirectories = false
+        openPanel.canCreateDirectories = true
+        openPanel.canChooseFiles = true
+        openPanel.begin { (result) in
+            if result.rawValue == NSFileHandlingPanelOKButton {
+                if let imageUrl = openPanel.urls.first {
+                    if let image = NSImage(contentsOf: imageUrl) {
+                        self.profilePicImageView.image = image
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func createAccountClicked(_ sender: Any) {
