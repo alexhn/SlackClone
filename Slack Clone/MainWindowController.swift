@@ -1,5 +1,7 @@
 import Cocoa
 
+import Parse
+
 class MainWindowController: NSWindowController {
 
     var loginVC: LoginViewController?

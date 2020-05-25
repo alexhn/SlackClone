@@ -7,12 +7,21 @@
 //
 
 import Cocoa
+import Parse
 
 class CreateAccountViewController: NSViewController {
 
+    @IBOutlet weak var passwordTextField: NSSecureTextField!
+    @IBOutlet weak var emailTextField: NSTextField!
+    @IBOutlet weak var nameTextField: NSTextField!
+    
+    @IBOutlet weak var profilePicImageView: NSImageView!
+    
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        //print(config)
     }
     
     @IBAction func loginButtonClicked(_ sender: Any) {
@@ -20,4 +29,24 @@ class CreateAccountViewController: NSViewController {
             mainWindowController.moveToLogin()
         }
     }
+    
+    @IBAction func chooseImageClicked(_ sender: Any) {
+        
+    }
+    
+    @IBAction func createAccountClicked(_ sender: Any) {
+        let user = PFUser()
+        user.email = emailTextField.stringValue
+        user.password = passwordTextField.stringValue
+        user.username = emailTextField.stringValue
+        user["name"] = nameTextField.stringValue
+        user.signUpInBackground { (success : Bool, error: Error?) in
+            if success {
+                print("Made a User!")
+            } else {
+                print("Error!")
+            }
+        }
+    }
+    
 }

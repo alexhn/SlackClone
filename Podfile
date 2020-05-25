@@ -9,6 +9,6 @@ target 'Slack Clone' do
 
   # Pods for Slack Clone
   
-  pod 'Parse'
+  pod 'Parse', '~> 1.18'
 
 end
