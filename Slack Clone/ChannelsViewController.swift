@@ -14,6 +14,8 @@ class ChannelsViewController: NSViewController {
     @IBOutlet weak var nameLabel: NSTextField!
     @IBOutlet weak var profilePicImageView: NSImageView!
     
+    var addChannelWindowController : NSWindowController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -43,6 +45,11 @@ class ChannelsViewController: NSViewController {
         if let mainWindowController = view.window?.windowController as? MainWindowController {
            mainWindowController.moveToLogin()
         }
+    }
+    
+    @IBAction func addChannelClicked(_ sender: Any) {
+        addChannelWindowController = storyboard?.instantiateController(withIdentifier: "addChannelWindowController") as? NSWindowController
+        addChannelWindowController?.showWindow(nil)
     }
     
 }
