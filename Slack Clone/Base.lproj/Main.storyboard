@@ -26,18 +26,78 @@
             </objects>
             <point key="canvasLocation" x="1649" y="-138"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Channel View Controller-->
         <scene sceneID="Sx0-aM-RlU">
             <objects>
-                <viewController id="2N0-sB-Cee" sceneMemberID="viewController">
+                <viewController id="2N0-sB-Cee" customClass="AddChannelViewController" customModule="Slack_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="L4n-ku-dZH">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="297" height="234"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XHg-F6-Pz1">
+                                <rect key="frame" x="90" y="191" width="117" height="23"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Add Channel" id="wqX-hg-DGp">
+                                    <font key="font" metaFont="system" size="20"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9bd-5Z-G7O">
+                                <rect key="frame" x="20" y="148" width="257" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Title" drawsBackground="YES" id="xNd-bf-hNt">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tbG-xS-4D3">
+                                <rect key="frame" x="20" y="71" width="257" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="Hi8-7M-ULU"/>
+                                </constraints>
+                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Description" drawsBackground="YES" id="HAt-lQ-9VP">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jfb-rl-fCH">
+                                <rect key="frame" x="90" y="13" width="118" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ZtQ-fB-bzb"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Add Channel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aR2-zK-b6j">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="addChannelClicked:" target="2N0-sB-Cee" id="Y9V-KD-BNw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="XHg-F6-Pz1" firstAttribute="centerX" secondItem="L4n-ku-dZH" secondAttribute="centerX" id="5a0-7g-VIK"/>
+                            <constraint firstAttribute="trailing" secondItem="9bd-5Z-G7O" secondAttribute="trailing" constant="20" id="89a-yA-3TH"/>
+                            <constraint firstItem="9bd-5Z-G7O" firstAttribute="firstBaseline" secondItem="XHg-F6-Pz1" secondAttribute="baseline" constant="41" id="FZv-iz-jtk"/>
+                            <constraint firstItem="9bd-5Z-G7O" firstAttribute="centerX" secondItem="L4n-ku-dZH" secondAttribute="centerX" id="IgF-b8-WBl"/>
+                            <constraint firstItem="9bd-5Z-G7O" firstAttribute="leading" secondItem="L4n-ku-dZH" secondAttribute="leading" constant="20" id="Ohc-5T-GHg"/>
+                            <constraint firstItem="tbG-xS-4D3" firstAttribute="leading" secondItem="L4n-ku-dZH" secondAttribute="leading" constant="20" id="PQ6-dR-pQI"/>
+                            <constraint firstItem="tbG-xS-4D3" firstAttribute="top" secondItem="9bd-5Z-G7O" secondAttribute="bottom" constant="10" id="TM8-gT-Y3I"/>
+                            <constraint firstItem="tbG-xS-4D3" firstAttribute="centerX" secondItem="L4n-ku-dZH" secondAttribute="centerX" id="VmP-Mk-fJh"/>
+                            <constraint firstItem="jfb-rl-fCH" firstAttribute="centerX" secondItem="L4n-ku-dZH" secondAttribute="centerX" id="YFa-2L-lNH"/>
+                            <constraint firstItem="XHg-F6-Pz1" firstAttribute="top" secondItem="L4n-ku-dZH" secondAttribute="top" constant="20" id="cM0-5h-HVF"/>
+                            <constraint firstAttribute="trailing" secondItem="tbG-xS-4D3" secondAttribute="trailing" constant="20" id="jSu-BI-Ff5"/>
+                            <constraint firstAttribute="bottom" secondItem="jfb-rl-fCH" secondAttribute="bottom" constant="20" id="qOW-xY-QVa"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="tbG-xS-4D3" id="RbY-Kc-hgS"/>
+                        <outlet property="titleTextField" destination="9bd-5Z-G7O" id="dYN-Pk-bre"/>
+                    </connections>
                 </viewController>
                 <customObject id="zNm-kC-BXB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1631" y="335"/>
+            <point key="canvasLocation" x="1686.5" y="307"/>
         </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
