@@ -51,6 +51,7 @@ class CreateAccountViewController: NSViewController {
     }
     
     @IBAction func createAccountClicked(_ sender: Any) {
+        PFUser.logOut()
         let user = PFUser()
         user.email = emailTextField.stringValue
         user.password = passwordTextField.stringValue
@@ -59,7 +60,9 @@ class CreateAccountViewController: NSViewController {
         user["profilePic"] = self.profilePicFile
         user.signUpInBackground { (success : Bool, error: Error?) in
             if success {
-                print("Made a User!")
+                if let mainWindowController = self.view.window?.windowController as? MainWindowController {
+                    mainWindowController.moveToChat()
+                }
             } else {
                 print("Error!")
             }

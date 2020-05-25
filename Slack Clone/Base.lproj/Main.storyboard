@@ -842,6 +842,57 @@
             </objects>
             <point key="canvasLocation" x="618" y="246"/>
         </scene>
+        <!--Split View Controller-->
+        <scene sceneID="vul-PY-Rlv">
+            <objects>
+                <splitViewController storyboardIdentifier="splitViewController" id="rm4-Z2-ijB" customClass="SplitViewController" customModule="Slack_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                    <splitViewItems>
+                        <splitViewItem id="Pw5-Gj-OOR"/>
+                        <splitViewItem id="5w8-Ao-iPJ"/>
+                    </splitViewItems>
+                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="C79-c3-g3a">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="rm4-Z2-ijB" id="TyL-a4-I9v"/>
+                        </connections>
+                    </splitView>
+                    <connections>
+                        <outlet property="splitView" destination="C79-c3-g3a" id="f9V-jh-zxC"/>
+                        <segue destination="pk7-Pc-7WR" kind="relationship" relationship="splitItems" id="Jm8-6e-9mB"/>
+                        <segue destination="jPk-GL-Rdc" kind="relationship" relationship="splitItems" id="8RG-xI-Cfc"/>
+                    </connections>
+                </splitViewController>
+                <customObject id="PX0-vr-37c" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="629" y="674"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Q9E-bd-ynP">
+            <objects>
+                <viewController id="pk7-Pc-7WR" sceneMemberID="viewController">
+                    <view key="view" id="g3H-CQ-OW9">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="KY3-OE-Fxb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1299" y="488"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="afX-kA-Lhw">
+            <objects>
+                <viewController id="jPk-GL-Rdc" sceneMemberID="viewController">
+                    <view key="view" id="oce-o7-6jE">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="QDV-xB-8fd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1299" y="860"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
@@ -891,6 +942,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="loginButtonClicked:" target="XfG-lQ-9wD" id="MPr-gn-2d5"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vUv-JA-Bjg">
                                 <rect key="frame" x="121" y="51" width="239" height="16"/>
@@ -931,6 +985,10 @@
                             <constraint firstItem="vUv-JA-Bjg" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="sCZ-55-9dz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="49V-RQ-yfl" id="5DY-hu-Uc4"/>
+                        <outlet property="passwordTextField" destination="1iw-IM-aYv" id="BoI-fs-rHv"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
